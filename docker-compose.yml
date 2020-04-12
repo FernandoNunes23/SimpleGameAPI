@@ -1,0 +1,27 @@
+version: '3'
+services:
+  docker-mysql:
+    restart: always
+    container_name: docker-mysql
+    image: mysql
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    env_file: .env
+
+  simple-game-api:
+    restart: on-failure
+    build: ./
+    container_name: simple-game-api
+    env_file: .env
+    expose:
+      - "8080"
+    ports:
+      - 8080:8080
+    environment:
+      WAIT_HOSTS: mysql:3306
+    depends_on:
+      - docker-mysql
+    links:
+      - "docker-mysql:docker-mysql"
