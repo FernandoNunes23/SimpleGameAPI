@@ -19,6 +19,8 @@ services:
       - "8080"
     ports:
       - 8080:8080
+    volumes:
+      - "./:/home/app"
     environment:
       WAIT_HOSTS: mysql:3306
     depends_on:

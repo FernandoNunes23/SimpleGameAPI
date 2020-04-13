@@ -2,4 +2,4 @@
 
 ./mvnw clean package
 
-java -jar /app/target/simple-game-api-0.0.1-SNAPSHOT.jar
+java -jar /home/app/target/simple-game-api-0.0.1-SNAPSHOT.jar

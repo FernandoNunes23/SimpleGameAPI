@@ -17,16 +17,16 @@ public class Player {
 	private Integer id;
 	
 	@Column(length = 50, nullable=false)
-	@NotBlank(message = "O parâmetro 'name' é obrigatório.")
+	@NotBlank(message = "{name.not.blank}")
 	private String name;
 
 	@Column(length = 100, nullable = false)
-	@Email(message = "Email inválido.")
-	@NotBlank(message = "O parâmetro 'email' é obrigatório.")
+	@Email(message = "{email.not.valid}")
+	@NotBlank(message = "{email.not.blank}")
 	private String email;
 	
 	@Column(columnDefinition = "integer NOT NULL default 1")
-	@Positive(message = "O parâmetro 'level' deve ser positivo.")
+	@Positive(message = "{level.not.positive}")
 	private Integer level = 1;
 	
 	/**
